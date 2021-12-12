@@ -1,0 +1,10 @@
+{
+    "name": "phalcon/app",
+    "description": "Phalcon application",
+    "require": {
+        "phalcon/devtools": "*"
+    },
+    "require-dev": {
+        "phalcon/devtools": "*"
+    }
+}

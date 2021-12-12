@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/activity/application" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/graham-campbell/result-type" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/phalcon/devtools" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/phalcon/migrations" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/phpoption/phpoption" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/psy/psysh" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/phalcon_sample/vendor/vlucas/phpdotenv" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/composer" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/phalcon/devtools" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/phalcon/migrations" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-intl-grapheme" />
+    </include_path>
+  </component>
+</project>

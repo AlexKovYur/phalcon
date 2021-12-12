@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b084cdb4-a719-4fba-9c68-7f5a5be713a3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/phalcon_sample/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/phalcon-devtools" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/composer" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/phalcon/devtools" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/phalcon/migrations" />
+      <path value="$PROJECT_DIR$/phalcon_sample/vendor/symfony/polyfill-intl-grapheme" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="226joYgLFaLLzDyHoCKTKVuqbMP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/phalcon_sample" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b084cdb4-a719-4fba-9c68-7f5a5be713a3" name="Default Changelist" comment="" />
+      <created>1639165106199</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639165106199</updated>
+      <workItem from="1639165107619" duration="8658000" />
+      <workItem from="1639294413016" duration="10573000" />
+      <workItem from="1639308095212" duration="9576000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="342" y="189" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1639166960825">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="342" y="189" key="#com.intellij.fileTypes.FileTypeChooser/65.24.1301.744@65.24.1301.744" timestamp="1639166960825" />
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1639294419487">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1639294419487" />
+  </component>
+</project>

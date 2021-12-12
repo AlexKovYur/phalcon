@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  landing:
+    container_name: landing
+    build: .
+    working_dir: /var/www/html
+    volumes:
+      - ./landing:/var/www/html
+    ports:
+      - '8080:80'
+    expose:
+      - '8080'
+    depends_on:
+      - postgres
+
+  activity:
+    container_name: activity
+    build: .
+    working_dir: /var/www/html
+    volumes:
+      - ./activity:/var/www/html
+    ports:
+      - '8081:80'
+    expose:
+      - '8081'
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    expose:
+      - "5434"
+    ports:
+      - "5434:5434"
