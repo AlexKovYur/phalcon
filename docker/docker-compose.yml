@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  nginx-container-landing:
+    image: nginx:latest
+    container_name: nginx-container-landing
+    volumes:
+      - ./conf:/etc/nginx/conf.d
+      - ../phalcon-landing:/var/www/myapp
+    depends_on:
+      - phalcon-landing
+    ports:
+      - "8080:80"
+
+  phalcon-landing:
+    build: .
+    container_name: phalcon-landing
+    environment:
+      APP_DEBUG: 1
+    volumes:
+      - ../phalcon-landing:/var/www/myapp
+
+  nginx-container-activity:
+    image: nginx:latest
+    container_name: nginx-container-activity
+    volumes:
+      - ./conf:/etc/nginx/conf.d
+      - ../phalcon-activity:/var/www/myapp
+    depends_on:
+      - phalcon-activity
+    ports:
+      - "8081:81"
+
+  phalcon-activity:
+    build: .
+    container_name: phalcon-activity
+    environment:
+      APP_DEBUG: 1
+    volumes:
+      - ../phalcon-activity:/var/www/myapp
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: dbpass
+      POSTGRES_DB: db
+    ports:
+      - "5432:5432"
