@@ -4,16 +4,13 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use Phalcon\Mvc\Controller;
-/*use Phalcon\Di;
-use Phalcon\Loader;
-use Phalcon\Mvc\View;*/
+//use Phalcon\Mvc\Url;
 
 class LinkController extends Controller
 {
 
     public function indexAction()
     {
-
         try {
 
             /**
@@ -22,7 +19,7 @@ class LinkController extends Controller
             $paths = [
                 'app/controllers/',
                 'app/models/',
-                //'library/',
+                'library/',
             ];
 
             $loader = new \Phalcon\Loader();
@@ -33,6 +30,17 @@ class LinkController extends Controller
              * Dependency injection
              */
             $di = new \Phalcon\DI();
+
+            /*$di->set(
+                "url",
+                function () {
+                    $url = new Url();
+
+                    $url->setBaseUri("activity");
+
+                    return $url;
+                }
+            );*/
 
             // Router
             $di->setShared('router', 'JsonRPC\Router');
@@ -61,21 +69,19 @@ class LinkController extends Controller
              * magic here
              */
             //$router = $di->getShared('router');
-
             //$router->handle();
 
             /**
              * or different use case
              */
             $router = $di->getShared('router');
-            //$router->handle('{"jsonrpc" : "2.0", "id" : 1, "method" : "sexy.test", "params" : {}}');
+            $router->handle('{"jsonrpc" : "2.0", "id" : 1, "method" : "tests.index", "params" : {}}');
 
         } catch (\Exception $e) {
             $response = new JsonRPC\Response();
             $response->error = $e;
             echo $response;
         }
-
     }
 
 }

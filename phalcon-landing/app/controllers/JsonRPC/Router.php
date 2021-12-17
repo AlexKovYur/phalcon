@@ -3,19 +3,14 @@ namespace JsonRPC;
 
 use Phalcon;
 
-//class Router extends Phalcon\Mvc\Router
 class Router extends Phalcon\Mvc\Router
 {
-    /**
-     * Handles request
-     * @param string $data
-     * @return void
-     */
-    public function handle($data = null)
+
+    public function handle($uri): void
     {
         // Get JsonRPC request
-        if ($data) {
-            $request = Request::fromString($data);
+        if ($uri) {
+            $request = Request::fromString($uri);
         } else {
             $request = $this->getDI()->getShared('jsonrpcRequest');
         }
