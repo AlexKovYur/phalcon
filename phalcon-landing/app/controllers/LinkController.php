@@ -4,84 +4,55 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use Phalcon\Mvc\Controller;
-//use Phalcon\Mvc\Url;
+use Phalcon\Http\Client\Request;
 
 class LinkController extends Controller
 {
-
     public function indexAction()
     {
-        try {
+        $baseUri = 'nginx-container-activity';
+        $params = [
+            'jsonrpc' => '2.0',
+            'id' => 1,
+            'method' => 'tests.index',
+            'params' => []
+        ];
 
-            /**
-             * Setup autoloader
-             */
-            $paths = [
-                'app/controllers/',
-                'app/models/',
-                'library/',
-            ];
+        $request = Request::getProvider();
+        $request->setBaseUri($baseUri);
 
-            $loader = new \Phalcon\Loader();
-            $loader->registerDirs($paths)
-                ->register();
+        //$request->header->set('Accept', 'application/json');
+        $request->header->set('Content-Type', 'application/json');
 
-            /**
-             * Dependency injection
-             */
-            $di = new \Phalcon\DI();
+        //$response = $request->get($baseUri, $params);
+        $response = $request->post($params);
 
-            /*$di->set(
-                "url",
-                function () {
-                    $url = new Url();
+        $response = json_decode($response->body, true);
 
-                    $url->setBaseUri("activity");
+        echo'<pre>';var_dump('$response', $response);echo'</pre>';die();
 
-                    return $url;
-                }
-            );*/
+        /*$jwtToken = 'abc.def.ghi';
 
-            // Router
-            $di->setShared('router', 'JsonRPC\Router');
+        $request = new Request(
+            'POST',
+            'https://api.phalcon.io/companies/1',
+            'php://memory',
+            [
+                'Authorization' => 'Bearer ' . $jwtToken,
+                'Content-Type'  => 'application/json',
+            ]
+        );
 
-            // Dispatcher
-            $di->setShared('dispatcher', 'Phalcon\Mvc\Dispatcher');
+        $request->withBody('{"jsonrpc" : "2.0", "id" : 1, "method" : "tests.index", "params" : {}}');
 
-            // Http\Request
-            $di->setShared('request', 'Phalcon\Http\Request');
+        $result = $httpClient->send($request);*/
 
-            // Http\Response
-            $di->setShared('response', 'Phalcon\Http\Response');
-
-            // JsonRPC\Request
-            $di->setShared('jsonrpcRequest', function() {
-                $request = Phalcon\DI::getDefault()->getShared('request');
-                $body    = $request->getRawBody();
-                $request = JsonRPC\Request::fromString($body);
-                return $request;
-            });
-
-            // JsonRPC\Response
-            $di->setShared('jsonrpcResponse', 'JsonRPC\Response');
-
-            /**
-             * magic here
-             */
-            //$router = $di->getShared('router');
-            //$router->handle();
-
-            /**
-             * or different use case
-             */
-            $router = $di->getShared('router');
-            $router->handle('{"jsonrpc" : "2.0", "id" : 1, "method" : "tests.index", "params" : {}}');
-
-        } catch (\Exception $e) {
-            $response = new JsonRPC\Response();
-            $response->error = $e;
-            echo $response;
-        }
+        /*$di->set('couchdb', function () use($config) {
+            $client = \Phalcon\Http\Client\Request::getProvider();
+            $client->setBaseUri($config->couchdb->baseUri);
+            $client->header->set('Content-Type', 'application/json');
+            return $client;
+        });*/
     }
 
 }

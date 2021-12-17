@@ -17,3 +17,9 @@ $loader->registerNamespaces(
         'App\Controllers'         => __DIR__ . '/../controllers/'
     ]
 )->register();
+
+$loader->registerNamespaces(
+    [
+        'Phalcon' => APP_PATH . '/library/'
+    ]
+)->register();
