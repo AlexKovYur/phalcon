@@ -1,6 +1,6 @@
 <?php
-namespace JsonRPC;
 
+namespace App\Controllers\JsonRPC;
 
 class Response
 {

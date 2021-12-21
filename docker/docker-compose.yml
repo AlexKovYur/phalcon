@@ -10,7 +10,7 @@ services:
     depends_on:
       - phalcon-landing
     ports:
-      - "8080:80"
+      - "8081:81"
 
   phalcon-landing:
     build: .
@@ -29,7 +29,7 @@ services:
     depends_on:
       - phalcon-activity
     ports:
-      - "8081:81"
+      - "8080:80"
 
   phalcon-activity:
     build: .

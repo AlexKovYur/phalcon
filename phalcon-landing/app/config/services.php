@@ -11,6 +11,8 @@ use Phalcon\Session\Adapter\Stream as SessionAdapter;
 use Phalcon\Session\Manager as SessionManager;
 use Phalcon\Url as UrlResolver;
 
+use \Phalcon\Mvc\Dispatcher; //https://docs.phalcon.io/4.0/ru-ru/namespaces
+
 /**
  * Shared configuration service
  */
@@ -120,3 +122,16 @@ $di->setShared('session', function () {
 
     return $session;
 });
+
+$di->set(
+    'dispatcher',
+    function () {
+        $dispatcher = new Dispatcher();
+
+        $dispatcher->setDefaultNamespace(
+            'App\Controllers'
+        );
+
+        return $dispatcher;
+    }
+);

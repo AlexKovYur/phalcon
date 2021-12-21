@@ -23,7 +23,7 @@ try {
     /**
      * Handle routes
      */
-    include APP_PATH . '/config/router.php';
+    //include APP_PATH . '/config/router.php';
 
     /**
      * Get config service for use in inline setup below

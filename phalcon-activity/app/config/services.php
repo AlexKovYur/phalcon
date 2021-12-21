@@ -11,12 +11,16 @@ use Phalcon\Session\Adapter\Stream as SessionAdapter;
 use Phalcon\Session\Manager as SessionManager;
 use Phalcon\Url as UrlResolver;
 
+use \Phalcon\Mvc\Dispatcher; //https://docs.phalcon.io/4.0/ru-ru/namespaces
+
 /**
  * Shared configuration service
  */
 $di->setShared('config', function () {
     return include APP_PATH . "/config/config.php";
 });
+
+$di->setShared('router', 'App\Controllers\JsonRPC\Router');
 
 /**
  * The URL component is used to generate all kind of urls in the application
@@ -120,3 +124,15 @@ $di->setShared('session', function () {
 
     return $session;
 });
+
+
+$di->set(
+    'dispatcher',
+    function () {
+        $dispatcher = new Dispatcher();
+        $dispatcher->setDefaultNamespace(
+            'App\Controllers'
+        );
+        return $dispatcher;
+    }
+);
