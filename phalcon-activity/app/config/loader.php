@@ -17,6 +17,8 @@ $loader->registerNamespaces(
         'App\Controllers' => APP_PATH . '/controllers/',
         'App\Controllers\JsonRPC' => APP_PATH . '/controllers/JsonRPC/',
         'App\Exceptions' => APP_PATH . '/exceptions/',
+        'App\Includes' => APP_PATH . '/includes/',
+        'App\Models' => APP_PATH . '/models/'
     ]
 )->register();
 

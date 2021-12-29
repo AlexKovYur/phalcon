@@ -8,12 +8,4 @@ $router = new Router();
 
 // Define your routes here
 
-/*$router->add(
-    '/admin/invoices/list',
-    [
-        'controller' => 'invoices',
-        'action'     => 'list',
-    ]
-);*/
-
 $router->handle($_SERVER['REQUEST_URI']);

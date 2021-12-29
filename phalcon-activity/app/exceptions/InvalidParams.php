@@ -4,12 +4,12 @@ namespace App\Exceptions;
 
 use App\Includes\CustomLog;
 
-class ParseError extends \Exception
+class InvalidParams extends \Exception
 {
-    function __construct($data = 'ParseError') {
+    function __construct($data = 'InvalidParams') {
         parent::__construct();
 
         $customLog = new CustomLog();
-        $customLog->addLogError($data);
+        $customLog->addLogNotice($data);
     }
 }

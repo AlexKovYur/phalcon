@@ -3,8 +3,9 @@
 namespace App\Controllers\JsonRPC;
 
 use App\Exceptions\ParseError;
-use Phalcon\Logger;
-use Phalcon\Logger\Adapter\Stream;
+use App\Exceptions\InvalidRequest;
+use App\Exceptions\MethodNotFound;
+use App\Exceptions\InvalidParams;
 
 class Request
 {
@@ -39,21 +40,9 @@ class Request
      */
     public static function fromString($string)
     {
-        //$string = '{"jsonrpc":"2.0","id":1,"method":"index.index","params":[]}';
-        $adapter = new Stream(APP_PATH . '/logs/application.log');
-        $logger  = new Logger(
-            'messages',
-            [
-                'main' => $adapter,
-            ]
-        );
-
-        //$logger->info($string);
-
         // Check that request is not empty
         if (empty($string)) {
-            //throw new Exception\InvalidRequest('Given request is empty');
-            throw new ParseError('Given request is empty');
+            throw new InvalidRequest('Given request is empty');
         }
 
         // Decode given string
@@ -86,32 +75,28 @@ class Request
 
         // Set up version
         if ($data['jsonrpc'] !== '2.0') {
-            //throw new Exception\InvalidRequest('Incorrect JSON-RPC version');
-            throw new ParseError('Incorrect JSON-RPC version');
+            throw new InvalidRequest('Incorrect JSON-RPC version');
         }
 
         // If there is no ID, throw exception
-        if (empty($data['id'])) {
-            //throw new Exception\InvalidRequest('ID is incorrect');
-            throw new ParseError('ID is incorrect');
-        }
+        /*if (empty($data['id'])) {
+            throw new InvalidRequest('ID is incorrect');
+        }*/
 
         // If there is no method, throw exception
         if (empty($data['method'])) {
-            //throw new Exception\MethodNotFound('Method can not be empty');
-            throw new ParseError('Method can not be empty');
+            throw new MethodNotFound('Method can not be empty');
         }
 
         // If threre is no params, throw exception
         if (!isset($data['params'])) {
-            //throw new Exception\InvalidParams('Params are not specified');
-            throw new ParseError('Params are not specified');
+            throw new InvalidParams('Params are not specified');
         }
 
         // Create and fill in jsonrpc request
         $request = new self();
         $request->version = $data['jsonrpc'];
-        $request->id      = $data['id'];
+        //$request->id      = $data['id'];
         $request->method  = $data['method'];
         $request->params  = $data['params'];
 

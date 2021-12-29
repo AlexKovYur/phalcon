@@ -3,29 +3,19 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use Phalcon\Logger;
-use Phalcon\Logger\Adapter\Stream;
 use App\Controllers\JsonRPC\Response;
+use App\Includes\CustomLog;
 
 class IndexController extends ControllerBase
 {
 
     public function indexAction()
     {
-        $adapter = new Stream(APP_PATH . '/logs/application.log');
-        $logger  = new Logger(
-            'messages',
-            [
-                'main' => $adapter,
-            ]
-        );
-
-        $logger->info('Something went wrong Index');
+        $customLog = new CustomLog();
+        $customLog->addLogInfo('Index');
 
         $response = new Response();
-        //echo'<pre>';var_dump('$response 2', $response);echo'</pre>';die();
-        //$response = $response->__toString();
-        //echo'<pre>';var_dump('$response 3', $response);echo'</pre>';die();
+
         return $response->__toString();
     }
 

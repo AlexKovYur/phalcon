@@ -3,35 +3,25 @@
 namespace App\Controllers\JsonRPC;
 
 use Phalcon;
-use Phalcon\Logger;
-use Phalcon\Logger\Adapter\Stream;
+use App\Includes\CustomLog;
 
 class Router extends Phalcon\Mvc\Router
 {
 
     public function handle($uri): void
     {
-        $adapter = new Stream(APP_PATH . '/logs/application.log');
-        $logger  = new Logger(
-            'messages',
-            [
-                'main' => $adapter,
-            ]
-        );
+        $customLog = new CustomLog();
 
-        //$logger->info($uri);
-
-        $request = Phalcon\DI::getDefault()->getShared('request');
-        $body    = $request->getRawBody();
-        //$logger->info($body);
-        $request = Request::fromString($body);
-        //$logger->info($request);
+        $uriData = trim($uri, '/');
 
         // Get JsonRPC request
-        if ($uri) {
-            //$request = Request::fromString($uri);
+        if ($uriData) {
+            $request = Request::fromString($uri);
         } else {
-            //$request = $this->getDI()->getShared('jsonrpcRequest');
+            $request = Phalcon\DI::getDefault()->getShared('request');
+            $body    = $request->getRawBody();
+            $customLog->addLogInfo($body);
+            $request = Request::fromString($body);
         }
 
         // Parse method name

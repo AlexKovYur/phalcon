@@ -4,9 +4,9 @@ namespace App\Exceptions;
 
 use App\Includes\CustomLog;
 
-class ParseError extends \Exception
+class MethodNotFound extends \Exception
 {
-    function __construct($data = 'ParseError') {
+    function __construct($data = 'MethodNotFound') {
         parent::__construct();
 
         $customLog = new CustomLog();

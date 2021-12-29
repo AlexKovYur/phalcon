@@ -17,7 +17,7 @@ class FollowlinksMigration_100 extends Migration
      */
     public function morph()
     {
-        $this->morphTable('followLinks', [
+        $this->morphTable('follow_links', [
                 'columns' => [
                     new Column(
                         'id',

@@ -4,17 +4,20 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use Phalcon\Http\Client\Request;
+use Phalcon\Url;
 
 class LinkController extends ControllerBase
 {
-    public function indexAction()
+    public function indexAction($params)
     {
         $baseUri = 'nginx-container-activity';
+        $link = $params ?? '';
+
         $params = [
             'jsonrpc' => '2.0',
-            'id' => 1,
-            'method' => 'index.index',
-            'params' => []
+            //'id' => 1,
+            'method' => 'url.followLinks',
+            'params' => ['url' => $link]
         ];
 
         $params = json_encode($params);
