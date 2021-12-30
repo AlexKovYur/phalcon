@@ -19,3 +19,12 @@ $router->add(
         'action' => 'index'
     ]
 );
+
+$router->add(
+    '/:admin/:activity',
+    [
+        'namespace'  => 'App\Controllers',
+        'controller' => 1,
+        'action' => 2
+    ]
+);

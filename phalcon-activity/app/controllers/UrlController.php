@@ -6,15 +6,14 @@ namespace App\Controllers;
 use App\Controllers\JsonRPC\Response;
 use App\Includes\CustomLog;
 use App\Models\FollowLinks;
-use Phalcon\Validation;
 
 class UrlController extends ControllerBase
 {
 
     public function followLinksAction($params)
     {
-        //$customLog = new CustomLog();
-        //$customLog->addLogInfo($params);
+        $customLog = new CustomLog();
+        $customLog->addLogInfo($params);
 
         $followLinks = new FollowLinks();
 

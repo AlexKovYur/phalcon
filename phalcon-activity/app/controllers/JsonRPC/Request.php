@@ -89,9 +89,9 @@ class Request
         }
 
         // If threre is no params, throw exception
-        if (!isset($data['params'])) {
+        /*if (!isset($data['params'])) {
             throw new InvalidParams('Params are not specified');
-        }
+        }*/
 
         // Create and fill in jsonrpc request
         $request = new self();

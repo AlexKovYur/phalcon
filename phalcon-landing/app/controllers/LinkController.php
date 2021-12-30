@@ -5,6 +5,7 @@ namespace App\Controllers;
 
 use Phalcon\Http\Client\Request;
 use Phalcon\Url;
+use Phalcon\Http\Response;
 
 class LinkController extends ControllerBase
 {
@@ -27,11 +28,17 @@ class LinkController extends ControllerBase
 
         $request->header->set('Content-Type', 'application/json');
 
-        $response = $request->post('', $params);
+        $result = $request->post('', $params);
 
-        $response = json_decode($response->body, true);
+        $result = json_decode($result->body, true);
 
-        echo'<pre>';var_dump('$response', $response);echo'</pre>';die();
+        $response = new Response();
+
+        if (empty($result['result'])) {
+            $response->redirect('http://localhost:8081/')->send();
+        }
+
+        $this->view->pick('link/' . $link);
     }
 
 }
