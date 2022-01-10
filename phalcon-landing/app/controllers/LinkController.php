@@ -35,7 +35,7 @@ class LinkController extends ControllerBase
         $response = new Response();
 
         if (empty($result['result'])) {
-            $response->redirect('http://localhost:8081/')->send();
+            $response->redirect('/')->send();
         }
 
         $this->view->pick('link/' . $link);

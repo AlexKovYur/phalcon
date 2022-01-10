@@ -16,15 +16,13 @@ class UrlController extends ControllerBase
         $customLog->addLogInfo($params);
 
         $followLinks = new FollowLinks();
-
         $followLinks->url = $params;
-
         $result = $followLinks->save();
 
+        $customLog->addLogInfo($result);
+
         $response = new Response();
-
         $response->id = $followLinks->id;
-
         $response->result = $result;
 
         return $response->__toString();

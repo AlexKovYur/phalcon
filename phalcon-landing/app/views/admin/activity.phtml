@@ -1,1 +1,22 @@
 <h1 class="display-3">activity</h1>
+
+<?php if (!empty($this->view->count)): ?>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">URL</th>
+            <th scope="col">Количество визитов</th>
+            <th scope="col">Последнее посещение</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($this->view->rows as $row): ?>
+        <tr>
+            <th><?= $row['url'] ?></th>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>

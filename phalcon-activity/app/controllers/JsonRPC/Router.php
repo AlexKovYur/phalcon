@@ -20,6 +20,7 @@ class Router extends Phalcon\Mvc\Router
         } else {
             $request = Phalcon\DI::getDefault()->getShared('request');
             $body    = $request->getRawBody();
+            $customLog->addLogInfo('post');
             $customLog->addLogInfo($body);
             $request = Request::fromString($body);
         }
@@ -41,6 +42,5 @@ class Router extends Phalcon\Mvc\Router
         $this->controller = $controller;
         $this->action     = $action;
         $this->params     = $request->params;
-        //echo'<pre>';var_dump('$this', $this);echo'</pre>';die();
     }
 }

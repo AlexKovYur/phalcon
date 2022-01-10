@@ -5,28 +5,38 @@ namespace App\Controllers;
 
 
 use Phalcon\Http\Client\Request;
+use Phalcon\Http\Response;
 
 class AdminController extends ControllerBase
 {
     public function activityAction()
     {
         $baseUri = 'nginx-container-activity';
-
         $params = [
             'jsonrpc' => '2.0',
             'method' => 'admin.activity',
+            'params' => []
         ];
-
         $params = json_encode($params);
 
         $request = Request::getProvider();
         $request->setBaseUri($baseUri);
-
         $request->header->set('Content-Type', 'application/json');
-
         $result = $request->post('', $params);
 
-        $result = json_decode($result->body, true);
-        echo'<pre>';var_dump('$result', $result);echo'</pre>';die();
+        $data = json_decode($result->body, true);
+        $results = json_decode($data['result'], true);
+
+        $response = new Response();
+
+        if (empty($results['response'])) {
+            $response->redirect('/')->send();
+        }
+
+        $this->view->setVars([
+            'rows' => $results['rows'],
+            'count' => $results['count'],
+            'response' => $results['response'],
+        ]);
     }
 }

@@ -21,9 +21,17 @@ class AdminController extends ControllerBase
         $customLog->addLogInfo(count($follow));
         $customLog->addLogInfo(json_encode($follow));
 
+        $results = [
+            'rows' => $follow,
+            'count' => count($follow),
+            'response' => $countFollow ? true : false
+        ];
+
         $response = new Response();
 
-        $response->result = $countFollow ? true : false;
+        $response->result = json_encode($results, JSON_FORCE_OBJECT);
+
+        $customLog->addLogInfo($response->result);
 
         return $response->__toString();
     }
