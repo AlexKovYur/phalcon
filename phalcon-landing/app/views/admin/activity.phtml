@@ -1,5 +1,5 @@
-<h1 class="display-3">activity</h1>
-
+<h1 class="display-3 text-center mt-3 mb-2">История активности</h1>
+<?php echo'<pre>';var_dump('$this->view->page[\'previous\']', $this->view->page);echo'</pre>'; ?>
 <?php if (!empty($this->view->count)): ?>
     <table class="table table-striped">
         <thead>
@@ -10,13 +10,32 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($this->view->rows as $row): ?>
+        <?php foreach ($this->view->page['items'] as $row): ?>
         <tr>
             <th><?= $row['url'] ?></th>
-            <td>test</td>
-            <td>test</td>
+            <td><?= $row['counter'] ?></td>
+            <td><?= date('d.m.Y', strtotime($row['date'])) ?></td>
         </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="/admin/activity/<?= $this->view->page['previous']; ?>">Previous</a></li>
+            <?php /*foreach (range(1, $this->view->page['total_items']) as $page) : */?>
+            <?php foreach (range(1, $this->view->count) as $page) : ?>
+                <li class="page-item">
+                    <a class="page-link" href="/admin/activity/<?= $page ?>"><?= $page ?></a>
+                </li>
+            <?php endforeach; ?>
+            <li class="page-item"><a class="page-link" href="/admin/activity/<?= $this->view->page['next'] + 1; ?>">Next</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        <span><?php echo "Page {$this->view->page['current']}  of {$this->view->page['last']}"; ?></span>
+    </div>
 <?php endif; ?>
+
+

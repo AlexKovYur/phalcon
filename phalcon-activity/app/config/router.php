@@ -8,4 +8,4 @@ $router = new Router();
 
 // Define your routes here
 
-$router->handle($_SERVER['REQUEST_URI']);
+    $router->handle($_SERVER['REQUEST_URI']);

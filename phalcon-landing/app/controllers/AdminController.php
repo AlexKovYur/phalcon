@@ -9,13 +9,15 @@ use Phalcon\Http\Response;
 
 class AdminController extends ControllerBase
 {
-    public function activityAction()
+    public function activityAction($page = null)
     {
         $baseUri = 'nginx-container-activity';
         $params = [
             'jsonrpc' => '2.0',
             'method' => 'admin.activity',
-            'params' => []
+            'params' => [
+                'page' => $page
+            ]
         ];
         $params = json_encode($params);
 
@@ -34,6 +36,7 @@ class AdminController extends ControllerBase
         }
 
         $this->view->setVars([
+            'page' => $results['page'],
             'rows' => $results['rows'],
             'count' => $results['count'],
             'response' => $results['response'],
