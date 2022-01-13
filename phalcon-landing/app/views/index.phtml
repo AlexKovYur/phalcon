@@ -10,31 +10,42 @@
         <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->url->get('img/favicon.ico')?>"/>
     </head>
     <body>
+    <?php
+    $uri = $_SERVER['REQUEST_URI'];
+    $isActive = function ($url) use ($uri) {
+        return $uri === $url ? 'active' : '';
+    };
+    ?>
+
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Home</a>
+                        <li class="nav-item">
+                            <a class="nav-link <?= $isActive('/') ?>" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/link">Link</a>
+                            <a class="nav-link <?= $isActive('/link') ?>" href="/link">Link</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/link2">Link 2</a>
+                            <a class="nav-link <?= $isActive('/link2') ?>" href="/link2">Link 2</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/link3">Link 3</a>
+                            <a class="nav-link <?= $isActive('/link3') ?>" href="/link3">Link 3</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/link4">Link 4</a>
+                            <a class="nav-link <?= $isActive('/link4') ?>" href="/link4">Link 4</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/link5">Link 5</a>
+                            <a class="nav-link <?= $isActive('/link5') ?>" href="/link5">Link 5</a>
                         </li>
                     </ul>
 
-                    <a class="nav-link text-white" href="/admin/activity">Admin</a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link <?= $isActive('/admin/activity') ?>" href="/admin/activity">Admin</a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
 

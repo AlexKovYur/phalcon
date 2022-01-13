@@ -31,15 +31,12 @@ class AdminController extends ControllerBase
 
         $response = new Response();
 
-        if (empty($results['response'])) {
+        if (count($results) <= 0) {
             $response->redirect('/')->send();
         }
 
         $this->view->setVars([
-            'page' => $results['page'],
-            'rows' => $results['rows'],
-            'count' => $results['count'],
-            'response' => $results['response'],
+            'paginate' => $results
         ]);
     }
 }

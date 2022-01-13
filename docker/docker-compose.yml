@@ -28,8 +28,6 @@ services:
       - ../phalcon-activity:/var/www/myapp
     depends_on:
       - phalcon-activity
-    ports:
-      - "8080:80"
 
   phalcon-activity:
     build: .

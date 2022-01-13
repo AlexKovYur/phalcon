@@ -5,53 +5,34 @@ namespace App\Controllers;
 
 
 use App\Controllers\JsonRPC\Response;
-use App\Includes\CustomLog;
 use App\Models\FollowLinks;
-use Phalcon\Paginator\Adapter\Model as Paginator;
+use Phalcon\Paginator\Adapter\QueryBuilder;
 
 class AdminController extends ControllerBase
 {
     public function activityAction($param = null)
     {
-        $customLog = new CustomLog();
-        $customLog->addLogInfo($param);
+        $builder = $this
+            ->modelsManager
+            ->createBuilder()
+            ->columns('count(id) as counter, url, max(date) as date')
+            ->from(FollowLinks::class)
+            ->orderBy('url')
+            ->groupBy('url');
 
-        $follow = FollowLinks::find([
-            'columns' => 'count(id) as counter, url, max(date) as date',
-            'group' => 'url'
-        ]);
-
-        $paginator = new Paginator(
+        $paginator = new QueryBuilder(
             [
-                'model' => FollowLinks::class,
-                'parameters' => [
-                    'columns' => 'count(id) as counter, url, max(date) as date',
-                    'group' => 'url',
-                    'order' => 'url'
-                ],
-                'limit' => 2,
+                'builder' => $builder,
+                'limit'   => 3,
                 'page'  => $param ?? 1,
             ]
         );
 
-        $page = $paginator->paginate();
-
-        $countFollow = count($follow);
-
-        $customLog->addLogInfo(count($follow));
-        $customLog->addLogInfo(json_encode($follow));
-
-        $results = [
-            'page' => $page,
-            'count' => count($follow),
-            'response' => $countFollow ? true : false
-        ];
+        $paginate = $paginator->paginate();
 
         $response = new Response();
 
-        $response->result = json_encode($results, JSON_FORCE_OBJECT);
-
-        $customLog->addLogInfo($response->result);
+        $response->result = json_encode($paginate, JSON_FORCE_OBJECT);
 
         return $response->__toString();
     }

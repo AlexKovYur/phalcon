@@ -1,6 +1,6 @@
 <h1 class="display-3 text-center mt-3 mb-2">История активности</h1>
-<?php echo'<pre>';var_dump('$this->view->page[\'previous\']', $this->view->page);echo'</pre>'; ?>
-<?php if (!empty($this->view->count)): ?>
+
+<?php if (!empty($this->view->paginate)): ?>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -10,7 +10,7 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($this->view->page['items'] as $row): ?>
+        <?php foreach ($this->view->paginate['items'] as $row): ?>
         <tr>
             <th><?= $row['url'] ?></th>
             <td><?= $row['counter'] ?></td>
@@ -22,19 +22,22 @@
 
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="/admin/activity/<?= $this->view->page['previous']; ?>">Previous</a></li>
-            <?php /*foreach (range(1, $this->view->page['total_items']) as $page) : */?>
-            <?php foreach (range(1, $this->view->count) as $page) : ?>
-                <li class="page-item">
+            <li class="page-item <?= $this->view->paginate['current'] === 1 ? 'disabled' : '' ?>">
+                <a class="page-link" href="/admin/activity/<?= $this->view->paginate['previous']; ?>">Previous</a>
+            </li>
+            <?php foreach (range(1, $this->view->paginate['last']) as $page) : ?>
+                <li class="page-item <?= $this->view->paginate['current'] === $page ? 'active' : '' ?>">
                     <a class="page-link" href="/admin/activity/<?= $page ?>"><?= $page ?></a>
                 </li>
             <?php endforeach; ?>
-            <li class="page-item"><a class="page-link" href="/admin/activity/<?= $this->view->page['next'] + 1; ?>">Next</a></li>
+            <li class="page-item <?= $this->view->paginate['current'] === $this->view->paginate['last'] ? 'disabled' : '' ?>">
+                <a class="page-link" href="/admin/activity/<?= $this->view->paginate['next']; ?>">Next</a>
+            </li>
         </ul>
     </nav>
 
     <div>
-        <span><?php echo "Page {$this->view->page['current']}  of {$this->view->page['last']}"; ?></span>
+        <span><?php echo "Page {$this->view->paginate['current']}  of {$this->view->paginate['last']}"; ?></span>
     </div>
 <?php endif; ?>
 
