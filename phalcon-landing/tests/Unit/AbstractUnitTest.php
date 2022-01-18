@@ -1,0 +1,43 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\Unit;
+
+use Phalcon\Di;
+use Phalcon\Di\FactoryDefault;
+use Phalcon\Incubator\Test\PHPUnit\UnitTestCase;
+use PHPUnit\Framework\IncompleteTestError;
+
+abstract class AbstractUnitTest extends UnitTestCase
+{
+    private $loaded = false;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $di = new FactoryDefault();
+
+        Di::reset();
+
+        //$config = include APP_PATH . "/config/config.php";
+        $config = include __DIR__ . "/../../app/config/config.php";
+
+        //include APP_PATH . "/config/loader.php";
+        include __DIR__ . "/../../app/config/loader.php";
+
+        Di::setDefault($di);
+
+        $this->loaded = true;
+    }
+
+    public function __destruct()
+    {
+        if (!$this->loaded) {
+            throw new IncompleteTestError(
+                "Please run parent::setUp()."
+            );
+        }
+    }
+}
