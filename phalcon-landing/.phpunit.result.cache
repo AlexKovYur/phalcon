@@ -1,1 +1,1 @@
-{"version":1,"defects":{"Tests\\Unit\\UnitTest::testTestCase":3,"Tests\\Unit\\ViewLinkTest::testLink":3},"times":{"Tests\\Unit\\UnitTest::testTestCase":0.004,"Tests\\Unit\\ViewLinkTest::testLink":0.043}}
+{"version":1,"defects":{"Tests\\Unit\\UnitTest::testTestCase":3,"Tests\\Unit\\ViewLinkTest::testLink":3,"Tests\\Unit\\ViewLinkTest::testActivityHistory":4},"times":{"Tests\\Unit\\UnitTest::testTestCase":0.004,"Tests\\Unit\\ViewLinkTest::testLink":0.08,"Tests\\Unit\\ViewLinkTest::testActivityHistory":0.061}}

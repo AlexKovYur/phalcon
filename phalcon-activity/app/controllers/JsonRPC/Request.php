@@ -78,11 +78,6 @@ class Request
             throw new InvalidRequest('Incorrect JSON-RPC version');
         }
 
-        // If there is no ID, throw exception
-        /*if (empty($data['id'])) {
-            throw new InvalidRequest('ID is incorrect');
-        }*/
-
         // If there is no method, throw exception
         if (empty($data['method'])) {
             throw new MethodNotFound('Method can not be empty');
@@ -96,7 +91,6 @@ class Request
         // Create and fill in jsonrpc request
         $request = new self();
         $request->version = $data['jsonrpc'];
-        //$request->id      = $data['id'];
         $request->method  = $data['method'];
         $request->params  = $data['params'];
 

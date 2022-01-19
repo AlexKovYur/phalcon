@@ -21,10 +21,8 @@ abstract class AbstractUnitTest extends UnitTestCase
 
         Di::reset();
 
-        //$config = include APP_PATH . "/config/config.php";
         $config = include __DIR__ . "/../../app/config/config.php";
 
-        //include APP_PATH . "/config/loader.php";
         include __DIR__ . "/../../app/config/loader.php";
 
         Di::setDefault($di);

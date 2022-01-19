@@ -31,7 +31,7 @@ class AdminController extends ControllerBase
 
         $response = new Response();
 
-        if (count($results) <= 0) {
+        if (empty($data['result'])) {
             $response->redirect('/')->send();
         }
 
